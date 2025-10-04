@@ -1,6 +1,7 @@
 package br.com.chamou.chamou.entity;
 
 import br.com.chamou.chamou.enums.SenhaTipoEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,6 +32,7 @@ public class Senha {
     private Time horaEmissao;
     private Boolean atendida;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "senha")
     private Painel painel;
 }

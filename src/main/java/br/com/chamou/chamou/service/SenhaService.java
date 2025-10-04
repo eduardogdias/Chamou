@@ -1,6 +1,8 @@
 package br.com.chamou.chamou.service;
 
+import br.com.chamou.chamou.dto.SenhaDTO;
 import br.com.chamou.chamou.entity.Senha;
+import br.com.chamou.chamou.enums.SenhaTipoEnum;
 import br.com.chamou.chamou.repository.SenhaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,33 +11,57 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@SuppressWarnings("all")
 public class SenhaService {
 
     @Autowired
     private SenhaRepository senhaRepository;
 
+
+    private String gerarSenha(SenhaTipoEnum tipo){
+        String numeroSenha;
+        int num = (int) (Math.random() * 900) + 100; // números entre 100 e 999
+
+        if(tipo == SenhaTipoEnum.COMUM){
+            numeroSenha = "C" + num;
+        } else {
+            numeroSenha = "P" + num;
+        }
+        return numeroSenha;
+    }
+
     public List<Senha> listAll(){
         return senhaRepository.findAll();
     }
 
-    public void save(Senha senha){
-        senhaRepository.save(senha);
+    public Senha findById(Long id){
+        Senha senha = senhaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Senha não encontrada"));
+        return senha;
     }
 
-    public void edit(Long id, Senha senha){
-        Optional<Senha> entity = senhaRepository.findById(id);
+    public Senha save(SenhaDTO senhaDTO){
+        Senha senha = new Senha();
 
-        if(entity.isPresent()){ 
-            entity.get().setAtendida(senha.getAtendida());
-            senhaRepository.save(entity.get());
-        }
+        senha.setTipo(senhaDTO.getTipo());
+        senha.setNumero(gerarSenha(senhaDTO.getTipo()));
+        senha.setDataEmissao(new java.sql.Date(System.currentTimeMillis())); // Data e hora atuais
+        senha.setHoraEmissao(new java.sql.Time(System.currentTimeMillis()));
+        senha.setAtendida(false);
+
+        return senhaRepository.save(senha);
     }
 
-    public void delete(Long id){
-        Optional<Senha> entity = senhaRepository.findById(id);
-        if(entity.isPresent()){
-            senhaRepository.deleteById(id);
-        }
+    public Senha edit(Long id, Boolean atendida){
+        Senha senha = findById(id);
+        senha.setAtendida(atendida);
+        return senhaRepository.save(senha);
+    }
+
+    public Senha delete(Long id){
+        Senha senha = findById(id);
+        senhaRepository.deleteById(id);
+        return senha;
     }
 
 
