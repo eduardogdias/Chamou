@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{/senha.css}">
 </head>
 <body>
-<h1>Retirar Senha</h1>
+    <h1>Retirar Senha</h1>
 
     <form method="post" th:object="${senhaDTO}">
         <input type="radio" name="tipo" value="COMUM" th:field="*{tipo}" required>

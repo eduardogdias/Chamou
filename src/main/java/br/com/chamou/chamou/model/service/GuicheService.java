@@ -33,6 +33,7 @@ public class GuicheService {
     }
 
     public Guiche save(GuicheDTO guicheDTO){
+
         return guicheRepository.save(guicheMapper.toEntity(guicheDTO));
     }
 
@@ -40,7 +41,6 @@ public class GuicheService {
         Guiche guiche = findById(id);
         guiche.setNumero(guicheDTO.getNumero());
         guiche.setAtendente(guicheDTO.getAtendente());
-        guiche.setLivre(guicheDTO.getLivre());
         return guicheRepository.save(guiche);
     }
 

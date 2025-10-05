@@ -7,7 +7,7 @@ import java.sql.Date;
 import java.sql.Time;
 
 @Entity
-@Table(name = "tb_painel")
+@Table(name = "tb_chamada")
 @Getter
 @Setter
 @NoArgsConstructor
