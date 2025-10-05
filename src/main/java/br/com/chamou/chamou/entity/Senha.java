@@ -14,9 +14,8 @@ import java.sql.Time;
 
 @Entity
 @Table(name = "tb_senha")
-@Data
 @Getter
-
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Senha {
@@ -32,9 +31,6 @@ public class Senha {
     private Time horaEmissao;
     private Boolean atendida;
 
-    @JsonIgnore
-    @OneToOne(mappedBy = "senha")
-    private Painel painel;
 }
 
 

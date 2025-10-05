@@ -1,6 +1,9 @@
 package br.com.chamou.chamou.service;
 
+import br.com.chamou.chamou.dto.GuicheDTO;
 import br.com.chamou.chamou.entity.Guiche;
+import br.com.chamou.chamou.entity.Senha;
+import br.com.chamou.chamou.mapper.GuicheMapper;
 import br.com.chamou.chamou.repository.GuicheRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,34 +12,41 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@SuppressWarnings("all")
 public class GuicheService {
 
     @Autowired
     private GuicheRepository guicheRepository;
 
+    @Autowired
+    private GuicheMapper guicheMapper;
+
     public List<Guiche> listAll(){
         return guicheRepository.findAll();
     }
 
-    public void save(Guiche guiche){
-        guicheRepository.save(guiche);
+    public Guiche findById(Long id){
+        Guiche guiche = guicheRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Guichê não encontrado"));
+        return guiche;
     }
 
-    public void edit(Long id, Guiche guiche){
-        Optional<Guiche> entity = guicheRepository.findById(id);
-
-        if(entity.isPresent()){
-            entity.get().setAtendente(guiche.getAtendente());
-            entity.get().setStatus(guiche.getStatus());
-            guicheRepository.save(entity.get());
-        }
+    public Guiche save(GuicheDTO guicheDTO){
+        return guicheRepository.save(guicheMapper.toEntity(guicheDTO));
     }
 
-    public void delete(Long id){
-        Optional<Guiche> entity = guicheRepository.findById(id);
-        if(entity.isPresent()){
-            guicheRepository.deleteById(id);
-        }
+    public Guiche edit(Long id, GuicheDTO guicheDTO){
+        Guiche guiche = findById(id);
+        guiche.setNumero(guicheDTO.getNumero());
+        guiche.setAtendente(guicheDTO.getAtendente());
+        guiche.setLivre(guicheDTO.getLivre());
+        return guicheRepository.save(guiche);
+    }
+
+    public Guiche delete(Long id){
+        Guiche guiche = findById(id);
+        guicheRepository.deleteById(id);
+        return guiche;
     }
 
 
