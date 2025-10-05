@@ -37,11 +37,11 @@ Sistema de gerenciamento de Senhas e Guichês com exibição em um Painel centra
 | DELETE | `/guiches/{id}` | Remove um guichê do sistema                                    |
 
 
-### Painéis
+### Chamadas
 
-| Método | Endpoint        | Descrição                                                       |
-| ------ | --------------- | --------------------------------------------------------------- |
-| GET    | `/paineis`      | Lista todas as senhas chamadas                                  |
-| POST   | `/paineis`      | Chama uma nova senha (define como atual, altera senha e guichê) |
-| PUT    | `/paineis/{id}` | Atualiza o status da chamada (ex: atual → antigo)               |
-| DELETE | `/paineis/{id}` | Remove a chamada do sistema                                     |
+| Método | Endpoint         | Descrição                                                       |
+| ------ | ---------------- | --------------------------------------------------------------- |
+| GET    | `/chamadas`      | Lista todas as senhas chamadas                                  |
+| POST   | `/chamadas`      | Chama uma nova senha (define como atual, altera senha e guichê) |
+| PUT    | `/chamadas/{id}` | Atualiza o status da chamada (ex: atual → antigo)               |
+| DELETE | `/chamadas/{id}` | Remove a chamada do sistema                                     |

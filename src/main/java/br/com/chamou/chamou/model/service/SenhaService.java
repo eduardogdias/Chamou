@@ -1,9 +1,10 @@
-package br.com.chamou.chamou.service;
+package br.com.chamou.chamou.model.service;
 
-import br.com.chamou.chamou.dto.SenhaDTO;
-import br.com.chamou.chamou.entity.Senha;
-import br.com.chamou.chamou.enums.SenhaTipoEnum;
-import br.com.chamou.chamou.repository.SenhaRepository;
+import br.com.chamou.chamou.model.dto.SenhaDTO;
+import br.com.chamou.chamou.model.entity.Senha;
+import br.com.chamou.chamou.model.enums.SenhaTipoEnum;
+import br.com.chamou.chamou.model.repository.SenhaRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

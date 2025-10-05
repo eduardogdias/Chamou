@@ -1,15 +1,13 @@
-package br.com.chamou.chamou.dto;
+package br.com.chamou.chamou.model.dto;
 
 import lombok.*;
 
-import java.sql.Date;
-import java.sql.Time;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PainelDTO {
+public class ChamadaDTO {
     private Boolean atual;
     private Long senhaId;
     private Long guicheId;

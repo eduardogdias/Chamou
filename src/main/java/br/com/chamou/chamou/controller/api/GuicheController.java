@@ -1,8 +1,9 @@
-package br.com.chamou.chamou.controller;
+package br.com.chamou.chamou.controller.api;
 
-import br.com.chamou.chamou.dto.GuicheDTO;
-import br.com.chamou.chamou.entity.Guiche;
-import br.com.chamou.chamou.service.GuicheService;
+import br.com.chamou.chamou.model.dto.GuicheDTO;
+import br.com.chamou.chamou.model.entity.Guiche;
+import br.com.chamou.chamou.model.service.GuicheService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

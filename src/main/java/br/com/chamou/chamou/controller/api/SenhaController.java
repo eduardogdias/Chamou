@@ -1,8 +1,9 @@
-package br.com.chamou.chamou.controller;
+package br.com.chamou.chamou.controller.api;
 
-import br.com.chamou.chamou.dto.SenhaDTO;
-import br.com.chamou.chamou.entity.Senha;
-import br.com.chamou.chamou.service.SenhaService;
+import br.com.chamou.chamou.model.dto.SenhaDTO;
+import br.com.chamou.chamou.model.entity.Senha;
+import br.com.chamou.chamou.model.service.SenhaService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,5 @@
-package br.com.chamou.chamou.dto;
+package br.com.chamou.chamou.model.dto;
 
-import br.com.chamou.chamou.enums.SenhaTipoEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +9,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SenhaDTO {
-    private SenhaTipoEnum tipo;
-    private Boolean atendida;
+public class GuicheDTO {
+    private String numero;
+    private String atendente;
+    private Boolean livre;
 }

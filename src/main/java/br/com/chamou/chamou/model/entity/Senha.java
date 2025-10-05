@@ -1,16 +1,16 @@
-package br.com.chamou.chamou.entity;
+package br.com.chamou.chamou.model.entity;
 
-import br.com.chamou.chamou.enums.SenhaTipoEnum;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
 import java.sql.Time;
+
+import br.com.chamou.chamou.model.enums.SenhaTipoEnum;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "tb_senha")
@@ -27,7 +27,11 @@ public class Senha {
 
     @Enumerated(EnumType.STRING)
     private SenhaTipoEnum tipo;
+
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dataEmissao;
+
+    @DateTimeFormat(pattern = "HH:mm")
     private Time horaEmissao;
     private Boolean atendida;
 

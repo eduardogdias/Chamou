@@ -1,10 +1,11 @@
-package br.com.chamou.chamou.service;
+package br.com.chamou.chamou.model.service;
 
-import br.com.chamou.chamou.dto.GuicheDTO;
-import br.com.chamou.chamou.entity.Guiche;
-import br.com.chamou.chamou.entity.Senha;
-import br.com.chamou.chamou.mapper.GuicheMapper;
-import br.com.chamou.chamou.repository.GuicheRepository;
+import br.com.chamou.chamou.model.dto.GuicheDTO;
+import br.com.chamou.chamou.model.entity.Guiche;
+import br.com.chamou.chamou.model.entity.Senha;
+import br.com.chamou.chamou.model.mapper.GuicheMapper;
+import br.com.chamou.chamou.model.repository.GuicheRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +41,12 @@ public class GuicheService {
         guiche.setNumero(guicheDTO.getNumero());
         guiche.setAtendente(guicheDTO.getAtendente());
         guiche.setLivre(guicheDTO.getLivre());
+        return guicheRepository.save(guiche);
+    }
+
+    public Guiche edit(Long id, Boolean livre){
+        Guiche guiche = findById(id);
+        guiche.setLivre(livre);
         return guicheRepository.save(guiche);
     }
 

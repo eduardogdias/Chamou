@@ -1,8 +1,9 @@
-package br.com.chamou.chamou.mapper;
+package br.com.chamou.chamou.model.mapper;
 
 
-import br.com.chamou.chamou.dto.GuicheDTO;
-import br.com.chamou.chamou.entity.Guiche;
+import br.com.chamou.chamou.model.dto.GuicheDTO;
+import br.com.chamou.chamou.model.entity.Guiche;
+
 import org.springframework.stereotype.Component;
 
 @Component

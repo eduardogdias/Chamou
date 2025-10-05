@@ -1,4 +1,4 @@
-package br.com.chamou.chamou.entity;
+package br.com.chamou.chamou.model.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -12,14 +12,14 @@ import java.sql.Time;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Painel {
+public class Chamada {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Boolean atual; // 1 -> atual | 0 -> antiga
-    private Date dataChamada;
-    private Time horaChamada;
+    private Date data;
+    private Time hora;
 
     @OneToOne
     @JoinColumn(name = "senha_fk", nullable = false)
