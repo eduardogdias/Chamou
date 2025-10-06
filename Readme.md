@@ -13,6 +13,7 @@ Sistema de gerenciamento de Senhas e Guichês com exibição em um Painel centra
 - Não é possível editar ou excluir uma Senha. Apenas o status pode ser alterado.
 - Caso a senha tenha sido criada de forma incorreta, ela deve ser descartada ou amassada (como na vida real).
 
+O Service decide a próxima senha não atendida e o próximo guichê livre.
 ---
 
 ## Endpoints (HTTP)

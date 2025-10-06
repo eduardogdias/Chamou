@@ -1,16 +1,71 @@
 body {
     font-family: Arial, sans-serif;
-    max-width: 400px;
-    margin: 40px auto;
+    margin: 0px auto;
     text-align: center;
 }
+
 h1 {
-    margin-bottom: 20px;
- }
-.senha-box {
-    margin-top: 20px;
-    padding: 15px;
-    border: 2px solid #333;
+	margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.container {
+    margin: 0px 550px;
+}
+
+form {
+    background-color: #f1f1f1;
+    padding: 20px;
     border-radius: 8px;
-    background-color: #f7f7f7;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+}
+
+label {
+	margin-right: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    cursor: pointer;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #fef102;
+    color: #000;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #cbc001;
+}
+
+.senha-box {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.senha-box p {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+h2 {
+	margin: 10px 0px;
+}
+
+.numero {
+	margin: 0px;
+	font-size: 35px;
+	color: #105072;
 }

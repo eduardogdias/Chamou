@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel de Chamadas</title>
+    <link rel="stylesheet" th:href="@{/chamada.css}">
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header"></div>
+	
+    <h1>Painel de Chamadas</h1>
+    <div class="container">
+	    <div class="card">
+	        <h2>Senha atual</h2>
+	        <div id="esquerda" th:if="${ultima.guiche != null}">
+		        <strong id="senhaatual" th:text="${ultima.senha?.numero}"></strong>
+		        <p th:text="${ultima.senha?.tipo}"></p>
+		        
+		        <p>
+		        	<strong>Guiche:</strong> 
+		        	<strong th:text="${ultima.guiche?.numero}"></strong>
+		        </p>
+	        </div>
+	        
+	    </div>
+	
+	
+	    <div class="card" id="direita">
+	        <h2>Senhas anteriores</h2>
+	
+	        <div class="interior" th:each="finalizada : ${finalizadas}">
+	        	<div class="infos">
+		        	<p><strong>Senha:</strong> <strong class="importante" th:text="${finalizada.senha?.numero}"></strong></p>
+		            <p><strong>Tipo:</strong> <span th:text="${finalizada.senha?.tipo}"></span></p>
+	        	</div>
+	            <div class="infos">
+		            <p><strong>Guiche:</strong> <strong class="importante" th:text="${finalizada.guiche?.numero}"></strong></p>
+		            <p><strong>Data:</strong> <span th:text="${finalizada.data}"></span></p>
+		            <p><strong>Hora:</strong> <span th:text="${finalizada.hora}"></span></p>
+	            </div>
+	            
+	        </div>
+	    </div>
+    </div>
+    
+
+    <a th:href="@{/web/chamadas/proximo}">
+        <button>Chamar Senha</button>
+    </a>
+</body>
+</html>

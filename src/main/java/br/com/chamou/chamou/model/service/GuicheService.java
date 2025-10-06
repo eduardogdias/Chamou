@@ -9,6 +9,7 @@ import br.com.chamou.chamou.model.repository.GuicheRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +22,23 @@ public class GuicheService {
 
     @Autowired
     private GuicheMapper guicheMapper;
+
+
+    public List<Guiche> guichesLivres(){
+        List<Guiche> guiches = new ArrayList<>(),
+                guichesLivres = new ArrayList<>();
+
+        guiches = listAll();
+        for (Guiche g : guiches) {
+            if(g.getLivre()){
+                guichesLivres.add(g);
+                System.out.println("Guiche: " + g.getNumero());
+            }
+        }
+
+        System.out.println("Guiche: " + guichesLivres);
+        return guichesLivres;
+    }
 
     public List<Guiche> listAll(){
         return guicheRepository.findAll();

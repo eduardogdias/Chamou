@@ -3,46 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>Guichês</title>
+    <link rel="stylesheet" th:href="@{/guiche.css}">
 </head>
 <body>
-    <h1>Guichês cadastrados</h1>
+	
+	<div th:replace="fragments/header :: header"></div>
+	
+   	<div class="container">
+    	<h1>Guichês cadastrados</h1>
 
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Número</th>
-            <th>Atendente</th>
-            <th>Status</th>
-            <th>Atendimento</th>
-            <th>Editar</th>
+       	<table>
+           <thead>
+           <tr>
+               <th>ID</th>
+               <th>Número</th>
+               <th>Atendente</th>
+               <th>Status</th>
+               <th>Atendimento</th>
+               <th>Editar</th>
 
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="guiche : ${guiches}">
-            <td th:text="${guiche.id}"></td>
-            <td th:text="${guiche.numero}"></td>
-            <td th:text="${guiche.atendente}"></td>
-            <td th:text="${guiche.livre} ? 'Livre' : 'Ocupado'"></td>
-            <td>
-                <a th:href="@{/web/guiches/encerrar/{id}(id=${guiche.id})}" onclick="return confirm('Tem certeza que deseja encerrar o atendimento?');">
-                    <button th:disabled="${guiche.livre}">Encerrar atendimento</button>
-                </a>
+           </tr>
+           </thead>
+           <tbody>
+           <tr th:each="guiche : ${guiches}">
+               <td th:text="${guiche.id}"></td>
+               <td th:text="${guiche.numero}"></td>
+               <td th:text="${guiche.atendente}"></td>
+               <td th:text="${guiche.livre} ? 'Livre' : 'Ocupado'"></td>
+               <td>
+                   <a th:href="@{/web/guiches/encerrar/{id}(id=${guiche.id})}" onclick="return confirm('Tem certeza que deseja encerrar o atendimento?');">
+                       <button class="btn-encerrar" th:disabled="${guiche.livre}">Encerrar atendimento</button>
+                   </a>
 
-            </td>
-            <td>
-                <a th:href="@{/web/guiches/editar/{id}(id=${guiche.id})}">
-                    <button>
-                        <img th:src="@{/edit.png}" alt="Editar">
-                    </button>
-                </a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+               </td>
+               <td>
+                   <a th:href="@{/web/guiches/editar/{id}(id=${guiche.id})}">
+                       <button class="btn-editar">
+                           <img th:src="@{/edit.png}" alt="Editar">
+                       </button>
+                   </a>
+               </td>
+           </tr>
+           </tbody>
+       </table>
 
-    <a th:href="@{/web/guiches/cadastrar}">Cadastro</a>
+       <a th:href="@{/web/guiches/cadastrar}">Cadastro</a>
+   	</div>
+       
+  
+
 
 </body>
 </html>

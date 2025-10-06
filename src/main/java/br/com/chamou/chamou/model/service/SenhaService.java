@@ -8,6 +8,7 @@ import br.com.chamou.chamou.model.repository.SenhaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +30,32 @@ public class SenhaService {
             numeroSenha = "P" + num;
         }
         return numeroSenha;
+    }
+
+    public List<Senha> senhasNaoChamadas(){
+
+        List<Senha> senhasCadastradas = new ArrayList<>(),
+                senhasComuns = new ArrayList<>(),
+                senhasPreferenciais = new ArrayList<>(),
+                senhas = new ArrayList<>();
+
+        senhasCadastradas = listAll();
+
+        for (Senha s : senhasCadastradas) {
+            if(!s.getAtendida()){       // se a senha não foi atendida, vamos separar entre Comum e Preferêncial
+                if(s.getTipo() == SenhaTipoEnum.COMUM){
+                    senhasComuns.add(s);
+                } else {
+                    senhasPreferenciais.add(s);
+                }
+            }
+
+        }
+        //senhas preferênciais são chamadas primeiro
+        senhas.addAll(senhasPreferenciais);
+        senhas.addAll(senhasComuns);
+        System.out.println("Senhas: " + senhas);
+        return senhas;
     }
 
     public List<Senha> listAll(){

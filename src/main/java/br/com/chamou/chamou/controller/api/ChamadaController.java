@@ -26,10 +26,15 @@ public class ChamadaController {
     }
 
     @PostMapping
-    public ResponseEntity<Chamada> upload(@RequestBody ChamadaDTO chamadaDTO){
-        chamada = chamadaService.save(chamadaDTO);
+    public ResponseEntity<Chamada> upload(@RequestBody(required = false) ChamadaDTO chamadaDTO){
+        if(chamadaDTO == null){
+            chamada = chamadaService.autoSave();
+        } else {
+            chamada = chamadaService.save(chamadaDTO);
+        }
         return ResponseEntity.status(HttpStatus.CREATED).body(chamada);
     }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<Chamada> update(@PathVariable Long id, @RequestBody ChamadaDTO chamadaDTO){

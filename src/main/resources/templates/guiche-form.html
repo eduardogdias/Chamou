@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Guichê</title>
+    <link rel="stylesheet" th:href="@{/guiche-form.css}">
 </head>
 <body>
-    <h1 th:text="${guiche.id == null} ? 'Cadastrar Guichê' : 'Editar Guichê'"></h1>
-
-    <form th:action="@{/web/guiches}" th:object="${guiche}" method="post">
-        <input type="hidden" th:field="*{id}" />
-
-        <label>Número:</label>
-        <input type="text" th:field="*{numero}" required placeholder="Digite o número do guichê" />
-
-        <label>Atendente:</label>
-        <input type="text" th:field="*{atendente}" required placeholder="Digite o nome do atendente" />
-
-        <button type="submit">Salvar</button>
-    </form>
-
-    <a th:href="@{/web/guiches}">Listagem</a>
+	<div th:replace="fragments/header :: header"></div>
+	
+	<div class="container">
+	    <h1 th:text="${guiche.id == null} ? 'Cadastrar Guichê' : 'Editar Guichê'"></h1>
+	
+	    <form th:action="@{/web/guiches}" th:object="${guiche}" method="post">
+	        <input type="hidden" th:field="*{id}" />
+	
+	        <label>Número:</label>
+	        <input type="text" th:field="*{numero}" required placeholder="Digite o número do guichê" />
+			<br>
+	        <label>Atendente:</label>
+	        <input type="text" th:field="*{atendente}" required placeholder="Digite o nome do atendente" />
+			<br>
+	        <button type="submit">Salvar</button>
+	    </form>
+	
+	    <a class="botao" th:href="@{/web/guiches}">Listagem</a>
+    </div>
 </body>
 </html>

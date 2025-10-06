@@ -6,24 +6,29 @@
     <link rel="stylesheet" th:href="@{/senha.css}">
 </head>
 <body>
-    <h1>Retirar Senha</h1>
 
-    <form method="post" th:object="${senhaDTO}">
-        <input type="radio" name="tipo" value="COMUM" th:field="*{tipo}" required>
-        <label>Comum </label>
-
-        <input type="radio" name="tipo" value="PREFERENCIAL">
-        <label>Preferencial</label>
-        <br><br>
-        <button type="submit">Retirar Senha</button>
-    </form>
-
-    <div class="senha-box" th:if="${senha != null}">
-        <p><strong>Senha:</strong> <span th:text="${senha.numero}"></span></p>
-        <p><strong>Data:</strong> <span th:text="${{senha.dataEmissao}}"></span></p>
-        <p><strong>Hora:</strong> <span th:text="${{senha.horaEmissao}}"></span></p>
-        <p><strong>Tipo:</strong> <span th:text="${senha.tipo}"></span></p>
-    </div>
-
+	<div th:replace="fragments/header :: header"></div>
+	
+	<div class="container">
+	    <h1>Retirar Senha</h1>
+	
+	    <form method="post" th:object="${senhaDTO}">
+	        <input type="radio" id="comum" name="tipo" value="COMUM" th:field="*{tipo}" required>
+	        <label for="comum">Comum </label>
+	
+	        <input type="radio" id="preferencial" name="tipo" value="PREFERENCIAL">
+	        <label for="preferencial">Preferencial</label>
+	        <br><br>
+	        <button type="submit">Retirar Senha</button>
+	    </form>
+	
+	    <div class="senha-box" th:if="${senha != null}">
+	    	<h2>Senha</h2>
+	        <h3 class="numero" th:text="${senha.numero}"></h3>
+	        <p><strong>Data:</strong> <span th:text="${{senha.dataEmissao}}"></span></p>
+	        <p><strong>Hora:</strong> <span th:text="${{senha.horaEmissao}}"></span></p>
+	        <p><strong>Tipo:</strong> <span th:text="${senha.tipo}"></span></p>
+	    </div>
+	</div>
 </body>
 </html>

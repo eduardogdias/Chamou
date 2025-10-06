@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0px auto;
+    text-align: center;
+}
+
+h1 {
+	margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.container {
+    margin: 0px 200px;
+}
+
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 80%;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #fafafa;
+}
+
+button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.btn-encerrar {
+    background-color: #fe0033;
+    color: #fff;
+}
+
+.btn-encerrar:hover:enabled {
+    background-color: #c0392b;
+}
+
+.btn-editar {
+    background-color: #fef102;
+    padding: 6px 12px;
+}
+
+.btn-editar img {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none;
+    color: #3498db;
+    display: inline-block;
+}
+
+a:hover {
+    text-decoration: underline;
+}
