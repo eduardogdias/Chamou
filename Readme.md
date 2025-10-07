@@ -136,7 +136,7 @@ webapp-chamou.azurewebsites.net
  
 Caso tenha alterado:
 ````bash
-https://webapp-<nome-do-webapp>.azurewebsites.net
+webapp-<nome-do-webapp>.azurewebsites.net
 ````
  
 Para acessar a aplicação, coloque o sufixo: `/web/senhas`
@@ -195,16 +195,14 @@ Para acessar a aplicação, coloque o sufixo: `/web/senhas`
 POST:
 ````json
 {
-    "nome": "Mottu Space 3",
-    "endereco": "Av. Butantan, 552"
+    "tipo": "COMUM"
 }
 ````
  
 PUT:
 ````json
 {
-    "nome": "Mottu Space 3",
-    "endereco": "Av. Butantan, 552"
+  "atendida": true
 }
 ````
  
@@ -214,16 +212,17 @@ PUT:
 POST:
 ````json
 {
-    "nome": "Mottu Space 3",
-    "endereco": "Av. Butantan, 552"
+    "numero": "06",
+    "atendente": "Raquel Freitas"
 }
 ````
  
 PUT:
 ````json
 {
-    "nome": "Mottu Space 3",
-    "endereco": "Av. Butantan, 552"
+    "numero": "16",
+    "atendente": "Raquel Silva Freitas",
+    "livre": false
 }
 ````
  
@@ -234,8 +233,8 @@ PUT:
 POST:
 ````json
 {
-    "nome": "Mottu Space 3",
-    "endereco": "Av. Butantan, 552"
+    "senhaId": "1",
+    "guicheId": "2"
 }
 ````
  
@@ -249,8 +248,7 @@ POST sem body:
 PUT:
 ````json
 {
-    "nome": "Mottu Space 3",
-    "endereco": "Av. Butantan, 552"
+    "atual": false
 }
 ````
  
