@@ -251,4 +251,10 @@ PUT:
     "atual": false
 }
 ````
+
+---
+
+Desenvolvido por **Eduardo Guilherme Dias**
+ [LinkedIn](https://www.linkedin.com/in/eduardo-gdias/) |  [GitHub](https://github.com/eduardogdias)
+
  
