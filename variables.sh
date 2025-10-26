@@ -3,7 +3,6 @@ NOME="chamou"
 
 # Informações básicas
 RG="rg-${NOME}"
-#LOCATION="brazilsouth"
 LOCATION="eastus2"
 
 # SQL Server e Banco
