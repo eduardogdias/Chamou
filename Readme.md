@@ -22,8 +22,11 @@ Sistema de gerenciamento de Senhas e Guichês com exibição em um Painel centra
 ## Telas da Aplicação
  
 ![](images/retirarSenha.png)
+
 ![](images/guiches.png)
+
 ![](images/editarGuiche.png)
+
 ![](images/painel.png)
  
 ---
