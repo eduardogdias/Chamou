@@ -1,7 +1,7 @@
 az provider register --namespace Microsoft.Sql
 az provider register --namespace Microsoft.Web
  
-export NAME="pipeline"
+export NAME="chamou"
 export RG="rg-${NAME}"
 export LOCATION="brazilsouth"
  
