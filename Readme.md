@@ -1,6 +1,7 @@
 # Chamou
  
 Este é um projeto onde aplico meus conhecimentos de Java, Banco e DevOps para criar um Sistema de gerenciamento de Senhas e Guichês com exibição em um Painel centralizado. 
+
 Conta com práticas de CI e CD, onde cada commit na branch Main é monitorada por duas Pipelines que fazem o Build e Deploy automaticamente em um App Service (Web App) na Azure.
  
 ---
